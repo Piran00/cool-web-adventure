@@ -39,3 +39,15 @@ export function Stickbutton({ text1, text2, text3, text4, children,link1,link2,l
     )
 
 }
+export function Backroundimg({path_img}) {
+    return(
+    
+    
+    
+    
+    
+    )
+    
+    
+    
+}

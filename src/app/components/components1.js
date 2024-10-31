@@ -5,7 +5,7 @@ export function Stickbutton({ text1, text2, text3, text4, children,link1,link2,l
 
 
     return (
-        <div className="w-full fixed h-1/4 bg-slate-200/100 bottom-0 ">
+        <div className="w-full fixed h-1/4 bg-slate-200/100 bottom-0 opacity-35">
             <div className="relative w-full h-full">
 
              <div className=" absolute text-red-800 text-4xl h-full left-[16.666%] right-[16.666%]">

@@ -8,6 +8,10 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "overrides": {
+        "react": "$react",
+        "react-dom": "$react-dom"
+    },
   "dependencies": {
     "98.css": "^0.1.20",
     "next": "15.0.1",

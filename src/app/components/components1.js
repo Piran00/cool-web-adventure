@@ -18,6 +18,7 @@ export function Stickbutton({ text1, text2, text3, text4, children, link1, link2
                             autoStart: true,
                             loop: false,
                             cursor: "▼",
+                            delay : 0.1,
 
                             deleteSpeed: Infinity
 
@@ -100,40 +101,14 @@ export function Pop_Over({ is_hidden, secret1, secret2, secret3, next_page_link 
         )
     }
 }
-export function Num_Pad({}) {
-    const Numpad = () => {
-        const [input, setInput] = useState('');
+export function Num_pad(secret) {
+    <div>
+    <div className="blur-md bg-red-600 opacity-20 h-full w-full fixed top-0 left-0 z-[-1]">
+    </div>
+    <div className="items-center justify-center flex-col flex fixed m-auto inset-x-0 inset-y-0 w-[150px] h-[800px] bg-slate-700 rounded-md z-[2]">
 
-        const handleClick = (value) => {
-          setInput((prev) => prev + value);
-        };
+    </div >
 
-        const handleClear = () => {
-          setInput('');
-        };
+    </div>
 
-        return (
-          <div className="flex flex-col items-center justify-center p-4">
-            <div className="mb-4 p-2 text-2xl border border-gray-300 rounded-lg w-full text-right">
-              {input}
-            </div>
-            <div className="grid grid-cols-3 gap-4">
-              {['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'].map((num) => (
-                <button
-                  key={num}
-                  onClick={() => handleClick(num)}
-                  className="w-16 h-16 bg-gray-200 text-xl rounded-lg hover:bg-gray-300 focus:outline-none"
-                >
-                  {num}
-                </button>
-              ))}
-            </div>
-            <button
-              onClick={handleClear}
-              className="mt-4 w-full py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
-            >
-              Clear
-            </button>
-          </div>
-        );
-}}
+}

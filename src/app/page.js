@@ -27,7 +27,7 @@ const Home = () => {
           </Typewriter>
         </div>
 
-        <Link href="/webventure">
+        <Link href="/start">
           <p className="px-6 py-3 text-black bg-red-600 rounded hover:bg-red-900 transition duration-300 cursor-pointer">
             Enter
           </p>

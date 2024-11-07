@@ -30,9 +30,9 @@ export function Stickbutton({ text1, text2, text3, text4, children, link1, link2
                     </button>
                 </Link>
 
-                <Link href={link2}>
+                <Link href={link4}>
                     <button className=" absolute h-20 bg-red-950 w-2/12 bottom-0 left-0 rounded-r-md rounded-b-none " id="bot-left-button">
-                        <p> {text2} </p>
+                        <p> {text4} </p>
                     </button>
                 </Link>
 
@@ -42,9 +42,9 @@ export function Stickbutton({ text1, text2, text3, text4, children, link1, link2
                     </button>
                 </Link>
 
-                <Link href={link4}>
+                <Link href={link2}>
                     <button className="absolute h-20 bg-red-950 w-2/12 top-0 right-0" id="top-right-button " style={{ borderBottomLeftRadius: "0.375rem" }} >
-                        <p> {text4} </p>
+                        <p> {text2} </p>
                     </button>
                 </Link>
             </div>
@@ -90,7 +90,7 @@ export function Pop_Over({ is_hidden, secret1, secret2, secret3, next_page_link 
                     <div className="w-full h-[45%]">
 
                     </div>
-                    <p id="accuracy_value" className="font-extrabold h-24 text-3xl" style={{ color: win_color }}>{Math.round(total_accuracy * 1)}% </p>
+                    <p id="accuracy_value" className="font-extrabold h-24 text-3xl" style={{ color: win_color }}>{Math.round(total_accuracy * 100) / 100}% </p>
                     <input type="range" min="1" max="50" value={slider_cur_val1} className="w-80 h-6" onChange={function (val) { set_slider1(Number(val.target.value)) }}></input>
                     <input type="range" min="1" max="50" value={slider_cur_val2} className="w-80 h-6" onChange={function (val) { set_slider2(Number(val.target.value)) }}></input>
                     <input type="range" min="1" max="50" value={slider_cur_val3} className="w-80 h-6" onChange={function (val) { set_slider3(Number(val.target.value)) }}></input>
@@ -100,3 +100,40 @@ export function Pop_Over({ is_hidden, secret1, secret2, secret3, next_page_link 
         )
     }
 }
+export function Num_Pad({}) {
+    const Numpad = () => {
+        const [input, setInput] = useState('');
+
+        const handleClick = (value) => {
+          setInput((prev) => prev + value);
+        };
+
+        const handleClear = () => {
+          setInput('');
+        };
+
+        return (
+          <div className="flex flex-col items-center justify-center p-4">
+            <div className="mb-4 p-2 text-2xl border border-gray-300 rounded-lg w-full text-right">
+              {input}
+            </div>
+            <div className="grid grid-cols-3 gap-4">
+              {['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'].map((num) => (
+                <button
+                  key={num}
+                  onClick={() => handleClick(num)}
+                  className="w-16 h-16 bg-gray-200 text-xl rounded-lg hover:bg-gray-300 focus:outline-none"
+                >
+                  {num}
+                </button>
+              ))}
+            </div>
+            <button
+              onClick={handleClear}
+              className="mt-4 w-full py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+            >
+              Clear
+            </button>
+          </div>
+        );
+}}

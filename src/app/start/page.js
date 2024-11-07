@@ -6,8 +6,8 @@ export default function Webventure() {
     return (
         <div>
             <Backround_img img_path={"404error.jpg"}></Backround_img>
-            <Stickbutton text1={"test1"} link1={"t"} link2={"e"} link3={"s"} link4={"t"} text2={"test2"} text3={"test3"} text4={"test4"}>
-                test test test
+            <Stickbutton text1={"try another way"} link1={"a-1"} link2={"b-1"} link3={"start"} link4={"start"} text2={"try to pick the lock"} text3={"/"} text4={"/"}>
+                You arrive at the location
             </Stickbutton>
         </div>
 

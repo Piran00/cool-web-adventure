@@ -63,12 +63,21 @@ export function Backround_img({ img_path }) {
 
 
 }
-export function Pop_Over({ is_hidden}) {
-    const [slider_cur_val1,set_slider1] = useState(5)
-    const [slider_cur_val2,set_slider2] = useState(5)
-    const [slider_cur_val3,set_slider3] = useState(5)
-    const total_val = slider_cur_val1 + slider_cur_val2 + slider_cur_val3;
-
+export function Pop_Over({ is_hidden, secret1, secret2, secret3, next_page_link }) {
+    const [slider_cur_val1, set_slider1] = useState(25)
+    const [slider_cur_val2, set_slider2] = useState(25)
+    const [slider_cur_val3, set_slider3] = useState(25)
+    var val1_accuracy = Number(((((50 - Math.abs(secret1 - slider_cur_val1)) * 2) / 10) * 3) + 3.34)
+    var val2_accuracy = Number(((((50 - Math.abs(secret2 - slider_cur_val2)) * 2) / 10) * 3) + 3.33)
+    var val3_accuracy = Number(((((50 - Math.abs(secret3 - slider_cur_val3)) * 2) / 10) * 3) + 3.33)
+    var total_accuracy = Number(val1_accuracy + val2_accuracy + val3_accuracy)
+    var win_color
+    if (total_accuracy == 100) {
+        win_color = "green"
+    }
+    else {
+        win_color = "white"
+    }
     if (!is_hidden) {
 
 
@@ -77,15 +86,15 @@ export function Pop_Over({ is_hidden}) {
                 <div className="blur-md bg-red-600 opacity-20 h-full w-full fixed top-0 left-0 z-[-1]">
 
                 </div>
-                <div className="items-center justify-center flex-col flex fixed m-auto inset-x-0 inset-y-0 w-[480px] h-[220px] bg-slate-700 rounded-md z-[2]" >
+                <div className="items-center justify-center flex-col flex fixed m-auto inset-x-0 inset-y-0 w-[400px] h-[200px] bg-slate-700 rounded-md z-[2]" >
                     <div className="w-full h-[45%]">
 
                     </div>
-                    <p className="font-medium">{total_val}</p>
-                    <input type="range" min="1" max="10" value={slider_cur_val1} className="w-80 h-6" onChange={function(val) {set_slider1(Number(val.target.value))}}></input>
-                    <input type="range" min="1" max="10" value={slider_cur_val2} className="w-80 h-6" onChange={function(val) {set_slider2(Number(val.target.value))}}></input>
-                    <input type="range" min="1" max="10" value={slider_cur_val3} className="w-80 h-6" onChange={function(val) {set_slider3(Number(val.target.value))}}></input>
-
+                    <p id="accuracy_value" className="font-extrabold h-24 text-3xl" style={{ color: win_color }}>{Math.round(total_accuracy * 1)}% </p>
+                    <input type="range" min="1" max="50" value={slider_cur_val1} className="w-80 h-6" onChange={function (val) { set_slider1(Number(val.target.value)) }}></input>
+                    <input type="range" min="1" max="50" value={slider_cur_val2} className="w-80 h-6" onChange={function (val) { set_slider2(Number(val.target.value)) }}></input>
+                    <input type="range" min="1" max="50" value={slider_cur_val3} className="w-80 h-6" onChange={function (val) { set_slider3(Number(val.target.value)) }}></input>
+                    {total_accuracy == 100 && <Link href={next_page_link}> <button className="bg-green-700 rounded-md">Continue</button></Link>}
                 </div>
             </div>
         )

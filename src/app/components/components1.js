@@ -101,14 +101,102 @@ export function Pop_Over({ is_hidden, secret1, secret2, secret3, next_page_link 
         )
     }
 }
-export function Num_pad(secret) {
-    <div>
-    <div className="blur-md bg-red-600 opacity-20 h-full w-full fixed top-0 left-0 z-[-1]">
-    </div>
-    <div className="items-center justify-center flex-col flex fixed m-auto inset-x-0 inset-y-0 w-[150px] h-[800px] bg-slate-700 rounded-md z-[2]">
+export function Num_pad({secret,next_page_link}) {
+const [num_val, set_num] = useState("")
+function add_num(numba) {
+    if (num_val.length < 4) {
+        set_num(num_val + numba )
+        console.log(num_val)}
 
-    </div >
 
-    </div>
+}
+    return(
+
+<div>
+                <div className="blur-md bg-red-600 opacity-20 h-full w-full fixed top-0 left-0 z-[-1]">
+
+                </div>
+                <div className="items-center justify-center flex-col flex fixed m-auto inset-x-0 inset-y-0 w-[400px] h-[600px] bg-slate-700 rounded-md z-[2]" >
+                    <div className=" z-[3] h-[10%] w-[10%] top-[7.5%] absolute">
+                    <p className="font-extrabold h-7 text-3xl  w-1/4 from-neutral-950">
+                      {num_val}
+                    </p>
+                    </div>
+                <div className="top-[22.5%] absolute w-full h-[85px]  ">
+                <button className="h-full w-[5%]">
+
+                </button>
+                <button className=" h-full w-[25%] bg-yellow-700 rounded-full" onClick={function() {add_num(1)}}>
+                 1
+                </button>
+                <button className="h-full w-[7.5%]  ">  
+
+                </button>
+                <button className=" h-full w-[25%] bg-yellow-700 rounded-full" onClick={function() {add_num(2)}}>
+                   2
+                </button>
+                <button className="h-full w-[7.5%]  ">  
+
+                </button>
+                <button className=" h-full w-[25%] bg-yellow-700 rounded-full" onClick={function() {add_num(3)}}>
+                3
+                </button>
+                </div>
+                <div className="top-[42.5%] absolute w-full h-[85px] ">
+                <button className="h-full w-[5%]"></button>
+
+                <button className=" h-full w-[25%] bg-yellow-700 rounded-full" onClick={function() {add_num(4)}}>
+                 4
+                </button>
+                <button className="h-full w-[7.5%]  ">  
+
+                </button>
+                <button className=" h-full w-[25%] bg-yellow-700 rounded-full" onClick={function() {add_num(5)}}>
+                   5
+                </button>
+                <button className="h-full w-[7.5%]  ">  
+
+                </button>
+                <button className=" h-full w-[25%] bg-yellow-700 rounded-full" onClick={function() {add_num(6)}}>
+                6
+                </button>
+                </div>
+
+                <div className="top-[62.5%] absolute w-full h-[85px] ">
+                <button className="h-full w-[5%]"></button>
+
+                <button className=" h-full w-[25%] bg-yellow-700 rounded-full" onClick={function() {add_num(7)}}>
+                 7
+                </button>
+                <button className="h-full w-[7.5%]  ">  
+
+                </button>
+                <button className=" h-full w-[25%] bg-yellow-700 rounded-full" onClick={function() {add_num(8)}}>
+                   8
+                </button>
+                <button className="h-full w-[7.5%]  ">  
+
+                </button>
+                <button className=" h-full w-[25%] bg-yellow-700 rounded-full" onClick={function() {add_num(9)}}>
+                9
+                </button>
+                </div>
+                <div className="top-[82.5%] absolute w-full h-[85px]">
+                    <button className="h-full absolute w-1/2 bg-red-700 font-extrabold left-0" onClick={function() {set_num("")}}>
+                    Reset
+                    </button>
+                   <p className="h-full left-1/2 absolute w-1/2 bg-green-600 flex justify-center content-center " > 
+                   {num_val == secret && <Link href={next_page_link} className=" z-[4] w-fit h-fit  bg-emerald-200"> <button > Continue </button></Link>}
+
+                   </p>
+
+                </div>
+
+                </div>
+
+
+
+</div>
+)
 
 }

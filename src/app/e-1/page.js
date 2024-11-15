@@ -6,7 +6,7 @@ export default function Webventure() {
 
     return (
         <div className="flex items-center justify-center h-screen w-screen">
-           <Num_pad secret={7493} next_page_link={"win"}>
+           <Num_pad secret={7824} next_page_link={"win"}>
            </Num_pad>
         </div>
 

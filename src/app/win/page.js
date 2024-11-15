@@ -1,3 +1,4 @@
+"use client"
 import { useState } from "react";
 import { Backround_img, Pop_Over, Stickbutton, } from "../components/components1";
 

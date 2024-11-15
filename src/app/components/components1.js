@@ -113,7 +113,7 @@ export function Num_pad({ secret, next_page_link }) {
     }
     return (
 
-        <div>
+        <div className="bg-black">
             <div className="blur-md bg-red-600 opacity-20 h-full w-full fixed top-0 left-0 z-[-1]">
 
             </div>
